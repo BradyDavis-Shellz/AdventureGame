@@ -27,46 +27,46 @@ public class InteractableEditor : EditorWithSubEditors<ConditionCollectionEditor
         CheckAndCreateSubEditors(interactable.conditionCollections);
     }
 
-    private void OnDisable()
+
+    private void OnDisable ()
     {
-        CleanupEditors();
+        CleanupEditors ();
     }
+
 
     protected override void SubEditorSetup(ConditionCollectionEditor editor)
     {
         editor.collectionsProperty = collectionsProperty;
     }
 
-    public override void OnInspectorGUI()
+
+    public override void OnInspectorGUI ()
     {
-        serializedObject.Update();
-
+        serializedObject.Update ();
+        
         CheckAndCreateSubEditors(interactable.conditionCollections);
-
-        EditorGUILayout.PropertyField(interactionLocationProperty);
+        
+        EditorGUILayout.PropertyField (interactionLocationProperty);
 
         for (int i = 0; i < subEditors.Length; i++)
         {
-            subEditors[i].OnInspectorGUI();
-            EditorGUILayout.Space();
+            subEditors[i].OnInspectorGUI ();
+            EditorGUILayout.Space ();
         }
 
         EditorGUILayout.BeginHorizontal();
-
-        GUILayout.FlexibleSpace();
-        if(GUILayout.Button("Add Collection", GUILayout.Width(collectionButtonWidth)))
+        GUILayout.FlexibleSpace ();
+        if (GUILayout.Button("Add Collection", GUILayout.Width(collectionButtonWidth)))
         {
-            ConditionCollection newCollection = ConditionCollectionEditor.CreateConditionCollection();
-            collectionsProperty.AddToObjectArray(newCollection);
+            ConditionCollection newCollection = ConditionCollectionEditor.CreateConditionCollection ();
+            collectionsProperty.AddToObjectArray (newCollection);
         }
+        EditorGUILayout.EndHorizontal ();
 
-        EditorGUILayout.EndHorizontal();
+        EditorGUILayout.Space ();
 
-        EditorGUILayout.Space();
+        EditorGUILayout.PropertyField (defaultReactionCollectionProperty);
 
-        EditorGUILayout.PropertyField(defaultReactionCollectionProperty);
-
-        serializedObject.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties ();
     }
-
 }
