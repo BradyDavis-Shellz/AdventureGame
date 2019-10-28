@@ -12,14 +12,14 @@ public class SaveData : ResettableScriptableObject
         public List<T> values = new List<T>();
 
 
-        public void Clear ()
+        public void Clear()
         {
-            keys.Clear ();
-            values.Clear ();
+            keys.Clear();
+            values.Clear();
         }
 
 
-        public void TrySetValue (string key, T value)
+        public void TrySetValue(string key, T value)
         {
             int index = keys.FindIndex(x => x == key);
 
@@ -29,13 +29,13 @@ public class SaveData : ResettableScriptableObject
             }
             else
             {
-                keys.Add (key);
-                values.Add (value);
+                keys.Add(key);
+                values.Add(value);
             }
         }
 
 
-        public bool TryGetValue (string key, ref T value)
+        public bool TryGetValue(string key, ref T value)
         {
             int index = keys.FindIndex(x => x == key);
 
@@ -47,6 +47,7 @@ public class SaveData : ResettableScriptableObject
 
             return false;
         }
+
     }
 
 
@@ -57,7 +58,7 @@ public class SaveData : ResettableScriptableObject
     public KeyValuePairLists<Quaternion> quaternionKeyValuePairLists = new KeyValuePairLists<Quaternion>();
 
 
-    public override void Reset ()
+    public override void Reset()
     {
         boolKeyValuePairLists.Clear ();
         intKeyValuePairLists.Clear ();

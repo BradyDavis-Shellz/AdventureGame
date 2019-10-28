@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
             currentInteractable.Interact();
             currentInteractable = null;
 
-            StartCoroutine(WaitForInteraction());
+            StartCoroutine (WaitForInteraction ());
         }
     }
 
@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
 
         float proportionalDistance = 1f - distanceToDestination / agent.stoppingDistance;
 
-        Quaternion targetRotation = /*currentInteractable ? currentInteractable.interactionLocation.rotation :*/ transform.rotation;
+        Quaternion targetRotation = currentInteractable ? currentInteractable.interactionLocation.rotation : transform.rotation;
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, proportionalDistance);
 
         transform.position = Vector3.MoveTowards(transform.position, destinationPosition, slowingSpeed * Time.deltaTime);
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         if(!handleInput)
             return;
         
-        //currentInteractable = null;
+        currentInteractable = null;
 
         PointerEventData pData = (PointerEventData)data;
 
@@ -135,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void OnInteractableClick(Interactable interactable)
     {
-        if (!handleInput)
+        if(!handleInput)
             return;
 
         currentInteractable = interactable;
@@ -143,7 +143,7 @@ public class PlayerMovement : MonoBehaviour
         destinationPosition = currentInteractable.interactionLocation.position;
 
         agent.SetDestination(destinationPosition);
-        agent.Resume();
+        agent.Resume ();
     }
 
 
