@@ -19,7 +19,7 @@ public class ReactionCollection : MonoBehaviour
     }
 
 
-    public void React ()
+    public virtual void React ()
     {
         for (int i = 0; i < reactions.Length; i++)
         {
