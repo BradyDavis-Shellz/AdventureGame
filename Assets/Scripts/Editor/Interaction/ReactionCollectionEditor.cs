@@ -28,7 +28,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
 
         reactionsProperty = serializedObject.FindProperty(reactionsPropName);
 
-        CheckAndCreateSubEditors (reactionCollection.reactions);
+        CheckAndCreateSubEditors ((Reaction[])reactionCollection.reactions);
 
         SetReactionNamesArray ();
     }
@@ -50,7 +50,7 @@ public class ReactionCollectionEditor : EditorWithSubEditors<ReactionEditor, Rea
     {
         serializedObject.Update ();
 
-        CheckAndCreateSubEditors(reactionCollection.reactions);
+        CheckAndCreateSubEditors((Reaction[])reactionCollection.reactions);
 
         for (int i = 0; i < subEditors.Length; i++)
         {
