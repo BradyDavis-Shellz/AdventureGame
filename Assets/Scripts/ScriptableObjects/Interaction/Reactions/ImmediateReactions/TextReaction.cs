@@ -7,7 +7,13 @@ public class TextReaction : Reaction
     public float delay;
 
 
-    private TextManager textManager;
+    private ITextManager textManager;
+
+
+    public void SetTextManager(ITextManager textManager)
+    {
+        this.textManager = textManager;
+    }
 
 
     protected override void SpecificInit()
