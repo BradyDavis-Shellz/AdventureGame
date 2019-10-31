@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 
-public class TextManager : MonoBehaviour
+public class TextManager : MonoBehaviour, ITextManager
 {
     public struct Instruction
     {
