@@ -3,7 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 
 [CreateAssetMenu]
-public class SaveData : ResettableScriptableObject
+public class SaveData : ResettableScriptableObject, ISaveData
 {
     [Serializable]
     public class KeyValuePairLists<T>

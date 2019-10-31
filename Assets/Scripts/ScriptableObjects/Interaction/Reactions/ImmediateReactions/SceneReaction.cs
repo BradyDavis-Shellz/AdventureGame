@@ -2,10 +2,15 @@
 {
     public string sceneName;
     public string startingPointInLoadedScene;
-    public SaveData playerSaveData;
+    public ISaveData playerSaveData;
 
 
     private SceneController sceneController;
+
+    public void SetSceneController(ISceneController sceneController)
+    {
+        //this.sceneController = sceneController;
+    }
 
 
     protected override void SpecificInit()

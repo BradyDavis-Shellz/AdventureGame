@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class SceneController : MonoBehaviour
+public class SceneController : MonoBehaviour, ISceneController
 {
     public event Action BeforeSceneUnload;
     public event Action AfterSceneLoad;
