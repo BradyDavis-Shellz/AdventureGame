@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public abstract class Reaction : ScriptableObject, IReaction
+public abstract class Reaction : ScriptableObject
 {
     public void Init ()
     {

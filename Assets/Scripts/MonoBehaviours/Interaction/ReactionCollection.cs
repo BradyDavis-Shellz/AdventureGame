@@ -1,13 +1,8 @@
 ﻿using UnityEngine;
 
-public class ReactionCollection : MonoBehaviour, IReactionCollection
+public class ReactionCollection : MonoBehaviour
 {
-    public IReaction[] reactions = new Reaction[0];
-
-    public void SetReactions(IReaction[] reactions)
-    {
-        this.reactions = reactions;
-    }
+    public Reaction[] reactions = new Reaction[0];
 
 
     private void Start ()
@@ -24,7 +19,7 @@ public class ReactionCollection : MonoBehaviour, IReactionCollection
     }
 
 
-    public void React ()
+    public virtual void React ()
     {
         for (int i = 0; i < reactions.Length; i++)
         {

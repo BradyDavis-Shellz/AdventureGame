@@ -21,7 +21,7 @@ public class AllConditions : ResettableScriptableObject
                 instance = Resources.Load<AllConditions> (loadPath);
             if (!instance)
                 Debug.LogError ("AllConditions has not been created yet.  Go to Assets > Create > AllConditions.");
-            return instance;    
+            return instance;
         }
         set { instance = value; }
     }
@@ -39,7 +39,7 @@ public class AllConditions : ResettableScriptableObject
     }
 
 
-    public virtual bool CheckCondition (Condition requiredCondition)
+    public static bool CheckCondition (Condition requiredCondition)
     {
         Condition[] allConditions = Instance.conditions;
         Condition globalCondition = null;
