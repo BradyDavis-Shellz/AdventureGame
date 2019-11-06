@@ -54,14 +54,14 @@ namespace Tests
         [Test]
         public void AssertThatCheckConditionReturnsFalseIfConditionsIsNull()
         {
-            Assert.IsFalse(sut.CheckCondition(requiredCondition));
+            Assert.IsFalse(AllConditions.CheckCondition(requiredCondition));
         }
 
         [Test]
         public void AssertThatCheckConditionReturnsFalseIfFirstConditionIsNull()
         {
             sut.conditions = new Condition[1];
-            Assert.IsFalse(sut.CheckCondition(requiredCondition));
+            Assert.IsFalse(AllConditions.CheckCondition(requiredCondition));
         }
 
         [Test]
@@ -78,7 +78,7 @@ namespace Tests
                 sut.conditions[i] = condition;
             }
 
-            Assert.IsFalse(sut.CheckCondition(requiredCondition));
+            Assert.IsFalse(AllConditions.CheckCondition(requiredCondition));
         }
 
         [Test]
@@ -98,7 +98,7 @@ namespace Tests
 
             sut.conditions[numConditions] = requiredCondition;
 
-            Assert.IsTrue(sut.CheckCondition(requiredCondition));
+            Assert.IsTrue(AllConditions.CheckCondition(requiredCondition));
         }
     }
 }
