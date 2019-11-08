@@ -39,9 +39,9 @@ public class AllConditions : ResettableScriptableObject
     }
 
 
-    public static bool CheckCondition (Condition requiredCondition)
+    public virtual bool CheckCondition (Condition requiredCondition)
     {
-        Condition[] allConditions = Instance.conditions;
+        Condition[] allConditions = conditions;
         Condition globalCondition = null;
         
         if (allConditions != null && allConditions[0] != null)

@@ -2,7 +2,7 @@
 
 public abstract class Reaction : ScriptableObject
 {
-    public void Init ()
+    public virtual void Init ()
     {
         SpecificInit ();
     }
@@ -12,7 +12,7 @@ public abstract class Reaction : ScriptableObject
     {}
 
 
-    public void React (MonoBehaviour monoBehaviour)
+    public virtual void React (MonoBehaviour monoBehaviour)
     {
         ImmediateReaction ();
     }
