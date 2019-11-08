@@ -9,7 +9,7 @@ public abstract class DelayedReaction : Reaction
     protected WaitForSeconds wait;
 
 
-    public new void Init ()
+    public new virtual void Init ()
     {
         wait = new WaitForSeconds (delay);
 
@@ -17,7 +17,7 @@ public abstract class DelayedReaction : Reaction
     }
 
 
-    public new void React (MonoBehaviour monoBehaviour)
+    public new virtual void React (MonoBehaviour monoBehaviour)
     {
         monoBehaviour.StartCoroutine (ReactCoroutine ());
     }
