@@ -24,11 +24,6 @@ public class AudioReactionTests
         sut.audioClip = clip;
     }
 
-    [TearDown]
-    public void TearDown()
-    {
-    }
-
     [Test]
     public void TestThatImmediateReactionSetsAudioClipAndPlaysWithDelay()
     {
