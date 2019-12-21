@@ -34,16 +34,32 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        if (!agent)
+        {
+            agent = GetComponent<NavMeshAgent>();
+        }
+
+        if (!animator)
+        {
+            animator = GetComponent<Animator>();
+        }
+
+
         agent.updateRotation = false;
 
         inputHoldWait = new WaitForSeconds (inputHoldDelay);
 
         string startingPositionName = "";
-        playerSaveData.Load(startingPositionKey, ref startingPositionName);
-        Transform startingPosition = StartingPosition.FindStartingPosition(startingPositionName);
 
-        transform.position = startingPosition.position;
-        transform.rotation = startingPosition.rotation;
+        if (playerSaveData)
+        {
+            playerSaveData.Load(startingPositionKey, ref startingPositionName);
+
+            Transform startingPosition = StartingPosition.FindStartingPosition(startingPositionName);
+
+            transform.position = startingPosition.position;
+            transform.rotation = startingPosition.rotation;
+        }
 
         destinationPosition = transform.position;
     }
